@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get("SECRET_KEY", str(uuid4()))
+SECRET_KEY = environ.get("SECRET_KEY", uuid4().hex)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = environ.get("DEBUG", True)
@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # NOTE: add rest-framework
+    # NOTE: added following by developer
     'rest_framework',
+    'django_spanner',
+    'users',
+    'scores',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +81,13 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # TODO: add settings each env
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django_spanner',
+        'PROJECT': environ.get("PROJECT", "spanner-django-demo"),
+        'INSTANCE': environ.get("INSTANCE", "test-instance"),
+        'NAME': environ.get("INSTANCE", "test-database"),
+        'SPANNER_EMULATOR_URL': environ.get("SPANNER_EMULATOR_URL", "http://localhost:9020/"),
     }
 }
 
