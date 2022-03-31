@@ -28,3 +28,7 @@ emulator.enable:
 .PHONY: emulator.disable
 emulator.disable:
 	@gcloud config configurations activate $(DEFAULT_CONFIG)
+
+.PHONY: run.spanner-cli
+run.spanner-cli:
+	@docker-compose exec spanner-cli spanner-cli -p spanner-django-demo -i test-instance -d test-database

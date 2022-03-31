@@ -5,5 +5,8 @@ from users.serializers import UserSerializer
 
 
 class UserViewSet(ModelViewSet):
+    class META:
+        lookup_field = 'user_id'
+
     queryset = User.objects.all()
-    serializer = UserSerializer(queryset, many=True)
+    serializer_class = UserSerializer

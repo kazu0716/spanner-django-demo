@@ -5,5 +5,8 @@ from scores.serializers import UserSerializer
 
 
 class ScoreViewSet(ModelViewSet):
+    class META:
+        lookup_field = 'score_id'
+
     queryset = Score.objects.all()
-    serializer = UserSerializer(queryset, many=True)
+    serializer_class = UserSerializer
