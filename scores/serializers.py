@@ -1,9 +1,9 @@
 from rest_framework.serializers import ModelSerializer
 
-from models import User
+from scores.models import Score
 
 
 class UserSerializer(ModelSerializer):
     class Meta:
-        model = User
-        fields = ['name']
+        model = Score
+        fields = ['user_id', 'score']

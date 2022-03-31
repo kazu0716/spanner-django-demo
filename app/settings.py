@@ -87,7 +87,6 @@ DATABASES = {
         'PROJECT': environ.get("PROJECT", "spanner-django-demo"),
         'INSTANCE': environ.get("INSTANCE", "test-instance"),
         'NAME': environ.get("INSTANCE", "test-database"),
-        'SPANNER_EMULATOR_URL': environ.get("SPANNER_EMULATOR_URL", "http://localhost:9020/"),
     }
 }
 

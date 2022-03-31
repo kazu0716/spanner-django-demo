@@ -1,9 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
 
-from models import Score
-from serializers import UserSerializer
+from users.models import User
+from users.serializers import UserSerializer
 
 
 class UserViewSet(ModelViewSet):
-    queryset = Score.objects.all()
+    queryset = User.objects.all()
     serializer = UserSerializer(queryset, many=True)
