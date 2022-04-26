@@ -4,11 +4,6 @@ from django.db.models import DateTimeField, IntegerField, Model, UUIDField
 
 
 class Score(Model):
-    class Meta:
-        # managed = False
-        db_table = "Scores"
-        # unique_together = (('user_id', 'score_id'), ('user_id', 'score_id'),)
-
     score_id = UUIDField(primary_key=True, default=uuid4, editable=False)
     user_id = UUIDField(null=False)
     score = IntegerField(null=False)

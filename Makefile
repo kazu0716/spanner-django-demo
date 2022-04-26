@@ -1,12 +1,12 @@
 # !make
 
 # Google Cloud Settings
-DEFAULT_CONFIG = default
-EMULATOR_CONFIG = emulator
-EMULATOR_HOST = localhost:9010
+DEFAULT_CONFIG=default
+EMULATOR_CONFIG=emulator
+EMULATOR_HOST=localhost:9010
 
-GOOGLE_APPLICATION_CREDENTIALS = /Users/kazu0716/.config/gcloud/application_default_credentials.json
-GOOGLE_CLOUD_PROJECT = spanner-django-demo
+GOOGLE_APPLICATION_CREDENTIALS=/Users/kazu0716/.config/gcloud/application_default_credentials.json
+GOOGLE_CLOUD_PROJECT=spanner-django-demo
 
 .PHONY: create.emulatorConfig
 create.emulatorConfig:
